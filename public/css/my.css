@@ -1,0 +1,61 @@
+
+.nav-item.mr-2 a{
+    color: #6f76db;
+    font-size: 14;
+}
+.navbar-brand.ml-5 {
+    color:#8b92ec;
+    font-weight:500;
+    font-size: 14;
+}
+.navbar {
+    background-color: #210057;
+    padding: 16px;
+}
+        .view.intro-2 {
+          height: 100vh;
+        }
+
+        @media (max-width: 740px) {
+          html,
+          body,
+          header,
+          .view {
+            height: 815px;
+          }
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+          html,
+          body,
+          header,
+          .view  {
+            height: 650px;
+          }
+        }
+
+
+        h6 {
+            line-height: 1.7;
+        }
+        
+
+        .card {
+            margin-top: 30px;
+            /*margin-bottom: -45px;*/
+
+        }
+
+        .md-form input[type=text]:focus:not([readonly]),
+        .md-form input[type=password]:focus:not([readonly]) {
+            border-bottom: 1px solid #8EDEF8;
+            box-shadow: 0 1px 0 0 #8EDEF8;
+        }
+        .md-form input[type=text]:focus:not([readonly])+label,
+        .md-form input[type=password]:focus:not([readonly])+label {
+            color: #8EDEF8;
+        }
+
+footer{
+  padding:50px;
+}
