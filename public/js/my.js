@@ -1,15 +1,15 @@
 $(document).ready( function () {
 	// SideNav Initialization
-  $('#tenantlist').DataTable({
-    select: true,
+ var table =  $('#tenantlist').DataTable({
+    select: "single",
     dom: 'Bfrtip',
-    buttons: [
-      {
-          text: 'My button',
-          action: function ( e, dt, node, config ) {
-              alert( 'Button activated' );
-          }
-      }
-  ]
+        buttons: [
+            {
+                text: 'My button',
+                action: function ( ) {
+                    alert(table.row({selected:true}).data());
+                }
+            }
+        ]
   });
 });
