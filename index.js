@@ -40,8 +40,10 @@ app.get('/login', function(req, res) {
     // The render function takes the template filename (no extension - that's what the config is for!)
     // and an object for what's needed in that template
     res.render('admin', {
-      title: 'Welcome',
-    })
+      tenants:[
+        {Name:"Ryan Yao", daypayment:"7th", UnitNo:"1004", Rent:"5000", Momis:"2", FamilyNo:"5"},
+        {Name:"Ronald Yao", daypayment:"15th", UnitNo:"1005", Rent:"3000", Momis:"3", FamilyNo:"6"}
+      ]});
   });
 
   app.use(express.static('public'));
