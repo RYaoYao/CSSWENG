@@ -13,7 +13,7 @@
     padding: 16px;
 }
         .view.intro-2 {
-          height: 100vh;
+          height: 80vh;
         }
 
         @media (max-width: 740px) {
@@ -21,7 +21,7 @@
           body,
           header,
           .view {
-            height: 815px;
+            height: 875px;
           }
         }
 
