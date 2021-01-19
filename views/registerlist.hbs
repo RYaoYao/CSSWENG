@@ -28,50 +28,59 @@
             </tbody>
             </table>
           </div>
-<div id= "tenantmodal"class="modal" role="dialog" role = "document">
+<div id= "regismodal"class="modal" role="dialog" role = "document">
     <div class="modal-dialog">
 <div class = "modal-content">
     <div class="modal-header">
-        <h4 class = "modal-title text-center">Tenant Information</h4>
+        <h4 class = "modal-title text-center">Registrant Information</h4>
     </div>
     <div class="modal-body">
         <form role="form" method="POST" action="">
         <div class="form-group">
+       
+        <div class="form-group">
         <label>Name</label>
         <div>
-        <input type="text" id="editname" class= "form-control input-lg">
+        <input type="text" id="eregname" class= "form-control input-lg" readonly>
         </div>
         </div>
         <div class="form-group">
-        <label>Day of payment</label>
+        <label>Email Address</label>
         <div>
-        <input type="text" id="editpay" class= "form-control input-lg">
+        <input type="text" id="eregemail" class= "form-control input-lg" readonly>
         </div>
         </div>
         <div class="form-group">
-        <label>Unit Number</label>
+        <label>Contact Number</label>
         <div>
-        <input type="number" id="editunit" class= "form-control input-lg"> 
+        <input type="number" id="eregcon" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+         <label>Unit No</label>
+        <div>
+        <input type="text" id="eregunit" class= "form-control input-lg">
         </div>
         </div>
         <div class="form-group">
-        <label>Rent</label>
+        <label>Scheduled Day of Checking</label>
         <div>
-        <input type="text" id="editmont" class= "form-control input-lg">
+        <input type="text" id="eregday" class= "form-control input-lg">
+        </div>
+        </div>
+  <div class="form-group">
+        <label>Ideal Day of Payment</label>
+        <div>
+        <input type="text" id="eideal" class= "form-control input-lg">
         </div>
         </div>
         <div class="form-group">
-        <label>Months Missed</label>
+        <label>Status</label>
         <div>
-        <input type="text" id="editmos" class= "form-control input-lg">
+        <input type="text" id="eregstatus" class= "form-control input-lg">
         </div>
         </div>
-         <div class="form-group">
-        <label>No. of Family Members</label>
-        <div>
-        <input type="text" id="editfam" class= "form-control input-lg">
-        </div>
-        </div>
+      
+        
            <div class="form-group">
           <button type="submit" class="btn btn-success btn-block">Submit Edit</button>
                     </div>

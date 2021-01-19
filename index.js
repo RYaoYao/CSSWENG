@@ -54,7 +54,15 @@ app.get('/login', function(req, res) {
         {Name:"Charlene Yao", email:"charleneyaoo@dlsu.edu.ph",contact:"09064515880",UnitNo:"1005", DayChecking:"January 30, 2020",  iday:"30",status:"Pending"}
       ]});
   });
-
+  app.get('/problem-status', function(req, res) {
+    // The render function takes the template filename (no extension - that's what the config is for!)
+    // and an object for what's needed in that template
+    res.render('problemlist', {
+      problist:[
+        { probid:"0001", unitno:"1005",probtype:"Plumbing",problemdes:"Water not falling down", probstatus:"Contacting.."}
+    
+      ]});
+  });
 
   app.use(express.static('public'));
 
