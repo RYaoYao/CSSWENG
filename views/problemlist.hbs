@@ -1,0 +1,75 @@
+{{> nav2}}
+<div class="container-fluid mt-5" style="width: 90%;">
+        <table id="problist" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Problem Id</th>
+                    <th>Unit No.</th>
+                    <th>Problem Type</th>
+                    <th>Problem Description</th>
+                    <th>Status</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            {{#each problist}}
+             <tr>
+                 <td>{{probid}}</td>
+                <td>{{unitno}}</td>
+                <td>{{probtype}}</td>
+                <td>{{problemdes}}</td>
+                <td>{{probstatus}}</td>
+
+            </tr>
+{{/each}}
+            </tbody>
+            </table>
+          </div>
+<div id= "probmodal"class="modal" role="dialog" role = "document">
+    <div class="modal-dialog">
+<div class = "modal-content">
+    <div class="modal-header">
+        <h4 class = "modal-title text-center">Registrant Information</h4>
+    </div>
+    <div class="modal-body">
+        <form role="form" method="POST" action="">
+        <div class="form-group">
+       
+        <div class="form-group">
+        <label>Problem Id</label>
+        <div>
+        <input type="number" id="eprobid" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+        <div class="form-group">
+        <label>Unit No.</label>
+        <div>
+        <input type="number" id="eprobunit" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+        <div class="form-group">
+        <label>Problem Type</label>
+        <div>
+        <input type="text" id="eprobtype" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+         <label>Problem Description</label>
+        <div>
+        <input type="text" id="eprobdes" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+        <div class="form-group">
+        <label>Status</label>
+        <div>
+        <input type="text" id="eprobstat" class= "form-control input-lg">
+        </div>
+        </div>
+ 
+           <div class="form-group">
+          <button type="submit" class="btn btn-success btn-block">Submit Edit</button>
+                    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+</div>

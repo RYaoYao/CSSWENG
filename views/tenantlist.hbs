@@ -3,24 +3,86 @@
         <table id="tenantlist" class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Day of Payment</th>
                     <th>Unit Number</th>
+                    <th>Name</th>
+                    <th>Email Address</th>
+                    <th>Contact Number</th>
+                    <th>Day of Payment</th>
                     <th>Rent</th>
                     <th>Months Missed</th>
-                    <th>No. of Family Members</th>
                 </tr>
             </thead>
             {{#each tenants}}
              <tr>
-                <td>{{Name}}</td>
-                <td>{{daypayment}}</td>
                 <td>{{UnitNo}}</td>
+                <td>{{Name}}</td>
+                <td>{{email}}</td>
+                <td>{{contact}}</td>
+                <td>{{daypayment}}</td>
                 <td>{{Rent}}</td>
                 <td>{{Momis}}</td>
-                <td>{{FamilyNo}}</td>
             </tr>
 {{/each}}
             </tbody>
             </table>
           </div>
+<div id= "tenantmodal"class="modal" role="dialog" role = "document">
+    <div class="modal-dialog">
+<div class = "modal-content">
+    <div class="modal-header">
+        <h4 class = "modal-title text-center">Tenant Information</h4>
+    </div>
+    <div class="modal-body">
+        <form role="form" method="POST" action="">
+        <div class="form-group">
+        <label>Unit No</label>
+        <div>
+        <input type="text" id="editunit" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+        <div class="form-group">
+        <label>Name</label>
+        <div>
+        <input type="text" id="editname" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+        <div class="form-group">
+        <label>Email Address</label>
+        <div>
+        <input type="text" id="editemail" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+        <div class="form-group">
+        <label>Contact Number</label>
+        <div>
+        <input type="number" id="editcontact" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+        <div class="form-group">
+        <label>Day of payment</label>
+        <div>
+        <input type="text" id="editpay" class= "form-control input-lg">
+        </div>
+        </div>
+  
+        <div class="form-group">
+        <label>Rent</label>
+        <div>
+        <input type="text" id="editrent" class= "form-control input-lg">
+        </div>
+        </div>
+        <div class="form-group">
+        <label>Months Missed</label>
+        <div>
+        <input type="text" id="editmos" class= "form-control input-lg">
+        </div>
+        </div>
+        
+           <div class="form-group">
+          <button type="submit" class="btn btn-success btn-block">Submit Edit</button>
+                    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+</div>
