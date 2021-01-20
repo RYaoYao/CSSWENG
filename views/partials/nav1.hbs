@@ -18,11 +18,25 @@
                 <a class="nav-link" href="#">Contact Us</a>
               </li>
             <li class="nav-item mr-2">
-              <a class="nav-link"  href="/login">Login</a>
+              <a class="nav-link" data-toggle="modal" data-target="#logsign">Login</a>
             </li>
           </ul>
-         
         </div>
       </div>
       </nav>
-      
+      <div id="logsign" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">What would you like to do?</h4>
+            </div>
+            <div class="modal-body">
+                <p class="lead text-xs-center">Not a tenant of this apartment? Check how to apply by clicking <strong> sign up</strong> below</p>
+                <div class="lead text-xs-center"><a class="btn btn-info" href="/register">Sign up</a> or
+                    <a class="btn btn-success" href="/login">Sign In</a></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
