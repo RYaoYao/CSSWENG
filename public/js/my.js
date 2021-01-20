@@ -70,9 +70,37 @@ function EditProblemStat(param) {
      $("#eprobdes").val(param[3]);
      $("#eprobstat").val(param[4]);
      $("#probmodal").modal('show');
-
 }
 
+$('#UnitForm').on('click','#btnunit' ,function(){
+        var go = true;
+        var unitnum = $('#unitnum').val();
+        var unittype = $('#unittype').val();
+        var unitpay = $('#unitpay').val();
+
+        if(unitnum == '' || unitnum < 0 || unitnum >9999){
+            go = false;
+            $('#unitnum').css("border-color","red");
+            $('#error1').text("Unit Number required");
+        }
+        if(unitpay == '' ){
+            go = false;
+            $('#unitpay').css("border-color","red");
+            $('#error2').text("Rent is required");
+        }
+        if(go == true){
+            var newunit = {
+                unitno: unitnum,
+                size: unittype,
+                payment: unitpay
+            }
+            $.post('home', newunit, function(data, status){
+                if(data.success){
+                    console.log(success);
+                }
+            })
+        }
+});
 
 
 });

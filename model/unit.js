@@ -17,8 +17,7 @@ const UnitSchema = new mongoose.Schema({
         payment: payment
     });
     unit.save(function(err,result){
-        if (err) throw err
-        next(result);
+          next(err,result);
     })
 }
 
@@ -36,4 +35,16 @@ exports.find = function(unitno,next){
         if(err) throw err;
         next(result);
     })
+}
+
+exports.create = function(unitno,size,payment,next){
+    var unit = new UnitModel({
+        unitno:unitno,
+        size:size,
+        payment:payment
+    });
+    unit.save(function(err,result){
+        if(err) throw err;
+        next(result);
+    });
 }

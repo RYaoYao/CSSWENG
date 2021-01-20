@@ -1,5 +1,38 @@
 {{> nav2}}
+<div class="container border mt-5 p-3" style="width: 500px;" >
+<form id="UnitForm">
 
+   <div class="form-group row">
+   <label for="chonum" class="col-sm-4 col-form-label">Unit Number</label>
+   <div class="col-sm-8">
+<input type="number" class="form-control" id = "unitnum" placeholder="Enter a number from 0 - 99999"></input>
+<p id= "error1"  class = "errorm"></p>
+   </div>
+   </div>
+   <div class= "form-group row">
+  <label for="trv" class="col-sm-4 row-form-label">Apartment Type</label>
+  <div class="col-auto">
+<select  style="width:300px;" id="unittype">
+<option value="Studio">Studio</option>
+<option value="Loft">Loft</option>
+<option value="Duplex">Duplex</option>
+<option value="Triplex">Triplex</option>
+<option value="Garden">Garden</option>
+<option value="Railroad">Railroad</option>
+</select>
+</div>
+</div>
+<div class="form-group row">
+   <label for="chonum" class="col-sm-4 col-form-label">How much rent for this apartment</label>
+   <div class="col-auto">
+<input type="number" class="form-control" id = "unitpay" placeholder="in Php"></input>
+<p id= "error2"  class = "errorm"></p>
+   </div>
+
+<button  type="button"class="btn mb-2 rockwell" id = "btnunit">Create Unit</button>
+
+</form>
+</div>
 <!-- Electricity consumed:
  Last Month Electricity>
  Water consumed this month:
