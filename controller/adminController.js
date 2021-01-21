@@ -27,8 +27,9 @@ exports.createunit = function(req,res){
   console.log(req.body);
   var unitno = req.body.unitno;
   var size = req.body.size;
-  var payment = req.body.payment
-  unitModel.create(unitno,size,payment,function(err,result){
+  var payment = req.body.payment;
+  var status = req.body.status;
+  unitModel.create(unitno,size,payment,status,function(err,result){
     if(err)
       console.log(err);
     else
