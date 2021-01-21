@@ -1,0 +1,67 @@
+{{> nav1}}
+<div class= "container mt-5">
+ <form class="border border-light p-5">
+        
+  <p class="text-center h4 mb-4">Sign up</p>
+  
+  <div class="form-row mb-4">
+    <div class="col">
+      <!-- First name -->
+      <label class="form-label" for="regFirst">First name</label>
+      <input type="text" id="regFirst" class="form-control">
+      
+    </div>
+    <div class="col">
+      <!-- Last name -->
+      <label class="form-label" for="reglast">Last name</label>
+      <input type="text" id="reglast" class="form-control">
+    </div>
+  </div>
+          <!-- E-mail -->
+          <label  for="regemail">Email</label>
+     <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4">
+        
+                
+  <!-- Password -->
+  <div class="form-row mb-2">
+    <div class="form-outline col ">
+  <label  for="regpass">Password</label>
+  <input type="password" id="regpass" class="form-control" >
+  <small id="smalltext" class="text-center form-text text-muted mb-4">
+    At least 8 characters and 1 digit
+  </small>
+  </div>
+   <div class="col">
+     <label  for="regcontact">Contact Number:</label>
+  <input type="number" id="regcontact" class="form-control" >
+   </div>
+  </div>
+    <div class="form-row mb-2">
+       <div class="col">
+     <label  for="regunit">Desired Unit number:</label>
+  <select type="number" id="regunit" class="form-control" >
+    {{#each units}}
+    <option value={{unitno}}>{{unitno}}</option>
+    {{/each}}
+</select>
+   </div>
+    <div class="form-outline col">
+  <label  for="regcheck">Day of checking the apartment:</label>
+  <input type="date" id="regcheck" class="form-control" >
+  </div>
+   <div class="col">
+     <label  for="regpayment">Ideal day of rent payment:</label>
+  <input type="number" id="regpayment" class="form-control" >
+  <small id="smalltext2" class="text-center form-text text-muted mb-4">
+    Input a number from 1 - 31
+  </small>
+   </div>
+  
+  </div>
+        
+
+                 
+  <!-- Sign up button -->
+  <button class="btn btn-info my-4 btn-block waves-effect waves-light" type="submit">Register</button>
+               </form>
+  </div>

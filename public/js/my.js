@@ -77,7 +77,7 @@ $('#UnitForm').on('click','#btnunit' ,function(){
         var unitnum = $('#unitnum').val();
         var unittype = $('#unittype').val();
         var unitpay = $('#unitpay').val();
-
+        var status = "Unoccupied";
         if(unitnum == '' || unitnum < 0 || unitnum >9999){
             go = false;
             $('#unitnum').css("border-color","red");
@@ -92,9 +92,10 @@ $('#UnitForm').on('click','#btnunit' ,function(){
             var newunit = {
                 unitno: unitnum,
                 size: unittype,
-                payment: unitpay
+                payment: unitpay,
+                status: status
             }
-            $.post('home', newunit, function(data, status){
+            $.post('admin', newunit, function(data, status){
                 if(data.success){
                     console.log(success);
                 }
