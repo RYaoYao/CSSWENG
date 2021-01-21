@@ -65,7 +65,7 @@ footer{
 }
 .errorm {
     font-size: 18px;
-    color: red;
+    color:rgba(255,0,0,0.5);
     background-color:rgba(255,0,0,0.35);
     font-family: sans-serif;
 }

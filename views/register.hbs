@@ -1,6 +1,6 @@
 {{> nav1}}
 <div class= "container mt-5">
- <form class="border border-light p-5">
+ <form id="registerForm"class="border border-light p-5">
         
   <p class="text-center h4 mb-4">Sign up</p>
   
@@ -9,17 +9,19 @@
       <!-- First name -->
       <label class="form-label" for="regFirst">First name</label>
       <input type="text" id="regFirst" class="form-control">
-      
+      <p id = "regerror" class = "errorm"></p>
     </div>
     <div class="col">
       <!-- Last name -->
       <label class="form-label" for="reglast">Last name</label>
       <input type="text" id="reglast" class="form-control">
+       <p id = "regerror2" class = "errorm"></p>
     </div>
   </div>
           <!-- E-mail -->
           <label  for="regemail">Email</label>
-     <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4">
+     <input type="email" id="regemail" class="form-control mb-4" pattern="@gmail.com">
+      <p id = "regerror3" class = "errorm"></p>
         
                 
   <!-- Password -->
@@ -34,6 +36,7 @@
    <div class="col">
      <label  for="regcontact">Contact Number:</label>
   <input type="number" id="regcontact" class="form-control" >
+  <p id = "regerror4" class = "errorm"></p>
    </div>
   </div>
     <div class="form-row mb-2">
@@ -62,6 +65,6 @@
 
                  
   <!-- Sign up button -->
-  <button class="btn btn-info my-4 btn-block waves-effect waves-light" type="submit">Register</button>
+  <button class="btn btn-info my-4 btn-block waves-effect waves-light" type="button" id="btnreg">Register</button>
                </form>
   </div>
