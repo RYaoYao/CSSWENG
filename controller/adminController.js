@@ -23,6 +23,18 @@ exports.CalendarShow = function(req,res){
      
     });
 }
+exports.createunit = function(req,res){
+  console.log(req.body);
+  var unitno = req.body.unitno;
+  var size = req.body.size;
+  var payment = req.body.payment
+  unitModel.create(unitno,size,payment,function(err,result){
+    if(err)
+      console.log(err);
+    else
+     console.log(result);
+  })
+}
 
 exports.TenantList = function(req,res){
     res.render('tenantlist', {
@@ -30,4 +42,9 @@ exports.TenantList = function(req,res){
           {UnitNo:"1004",Name:"Ryan Yao", email:"ryan_yao@dlsu.edu.ph",contact:"09064515880",daypayment:"7th", Rent:"5000", Momis:"2"},
           {UnitNo:"1005",Name:"Ronald Yao", email:"ronaldyao@gmail.com",contact:"09065615778",daypayment:"15th", Rent:"3000", Momis:"3"}
         ]});
+}
+
+
+exports.home = function(req,res){
+  res.render('admin');
 }
