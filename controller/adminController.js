@@ -55,7 +55,6 @@ exports.CreateTenant = function(req,res){
   var name = req.body.name;
   var email = req.body.email;
   var contactno = req.body.contactno;
-  console.log(contactno);
   var daypayment = req.body.daypayment;
   RegistrantModel.findEmail(email,function(result){
     const unitid = result.desunit;
