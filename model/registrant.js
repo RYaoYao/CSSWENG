@@ -55,3 +55,12 @@ exports.findEmail = function(email, next){
         next(result);
     })
 }
+
+exports.update = function(email, status, next){
+   RegistrantModel.findOne({email:email}).exec(function(err,result){
+        result.status = status;
+        result.save(function(err2,res){
+            next(err2,res);
+        })
+    })
+}

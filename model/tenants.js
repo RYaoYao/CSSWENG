@@ -3,7 +3,7 @@ const TenantSchema = new mongoose.Schema({
     name:  { type : String, required : true},
     password: { type : String, required : true},
     email: { type : String, required : true},
-    contactno: {type:Number, required: true},
+    contactno: {type:String, required: true},
     daypayment: {type:Number, required: true},
     mosmissed: {type:Number, required: true},
     unit: {type: mongoose.Schema.Types.ObjectId, ref: 'units'}
@@ -18,11 +18,21 @@ exports.Create = function(name,password,email,contactno,daypayment,unit,next){
         email: email,
         contactno: contactno,
         daypayment: daypayment,
-        mostmissed: 0,
+        mosmissed: 0,
         unit: unit
     })
     tenant.save(function(err,result){
         next(err,result);
     })
 
+}
+
+exports.findAll = function(next){
+    tenantmodel.find({}).populate('unit').exec(function(err,result){
+        var tenObj = [];
+        result.forEach(element => {
+            tenObj.push(element.toObject());
+        });
+        next(tenObj);
+    })
 }
