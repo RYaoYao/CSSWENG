@@ -41,13 +41,11 @@ exports.createunit = function(req,res){
 }
 
 exports.TenantList = function(req,res){
-    res.render('tenantlist', {
-        tenants:[
-          {UnitNo:"1004",Name:"Ryan Yao", email:"ryan_yao@dlsu.edu.ph",contact:"09064515880",daypayment:"7th", Rent:"5000", Momis:"2"},
-          {UnitNo:"1005",Name:"Ronald Yao", email:"ronaldyao@gmail.com",contact:"09065615778",daypayment:"15th", Rent:"3000", Momis:"3"}
-        ]});
-}
-
+  tenantModel.findAll(function(result){
+    res.render('tenantlist', {tenants:result});
+    })
+  }
+    
 
 exports.home = function(req,res){
   res.render('admin');
@@ -57,6 +55,7 @@ exports.CreateTenant = function(req,res){
   var name = req.body.name;
   var email = req.body.email;
   var contactno = req.body.contactno;
+  console.log(contactno);
   var daypayment = req.body.daypayment;
   RegistrantModel.findEmail(email,function(result){
     const unitid = result.desunit;
@@ -70,6 +69,10 @@ exports.CreateTenant = function(req,res){
         console.log(resul);
       }
     })
+  })
+
+  RegistrantModel.update(email,"Approved",function(err4,resu){
+    console.log("goods");
   })
 
 }

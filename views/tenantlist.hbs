@@ -15,13 +15,13 @@
             </thead>
             {{#each tenants}}
              <tr>
-                <td>{{UnitNo}}</td>
-                <td>{{Name}}</td>
+                <td>{{unit.unitno}}</td>
+                <td>{{name}}</td>
                 <td>{{email}}</td>
-                <td>{{contact}}</td>
+                <td>{{contactno}}</td>
                 <td>{{daypayment}}</td>
-                <td>{{Rent}}</td>
-                <td>{{Momis}}</td>
+                <td>{{unit.payment}}</td>
+                <td>{{mosmissed}}</td>
             </tr>
 {{/each}}
             </tbody>
