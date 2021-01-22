@@ -23,13 +23,6 @@ const UnitSchema = new mongoose.Schema({
     })
 }
 
-exports.findNUpdate = function(unitobj, next){
-    UnitModel.findOneAndUpdate(planeObj, {$set: planeObj},{new:true, upsert:true, strict:false},function(err, plane){    
-        next(plane);
-            
-        })
-        
-}
 
 exports.find = function(unitno,next){
     var query = {unitno:unitno};

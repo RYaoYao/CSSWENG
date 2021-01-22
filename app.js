@@ -31,4 +31,4 @@ app.listen(port, function() {
 });
 
 app.use('/',indexRouter);
-app.use('/admin',adminRouter);
+app.use('/admin/',adminRouter);

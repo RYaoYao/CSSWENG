@@ -102,8 +102,31 @@ $('#UnitForm').on('click','#btnunit' ,function(){
             })
         }
 });
+$('#editreg').on('submit','#edrsub',function(){
+   var status =  $("#eregstatus").val();
+   if (status == "Accepted"){
+   var  newtenant = {
+    name: $("#eregname").val(),
+    email:$("#eregemail").val(),
+    contacno: $("#eregcon").val(),
+    unit: $("#eregunit").val(),
+    daypayment: $("#eideal").val()
+}
+$.post('./registration-status', newtenant, function(data, status){
+    if(data.success){
+        console.log(success);
+    }
+})
 
+    
+   }
+   else if(status == "Rejected"){
+    $("#eregstatus").val();
 
+   }else{
+       console.log("nothing")
+   }
+})
 });
 
 document.addEventListener('DOMContentLoaded', function() {

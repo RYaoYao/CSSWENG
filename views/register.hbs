@@ -1,6 +1,6 @@
 {{> nav1}}
-<div class= "container mt-5">
- <form class="border border-light p-5">
+<div class= "container mt-5 p-5 z-depth-1">
+ <form id="registerForm">
         
   <p class="text-center h4 mb-4">Sign up</p>
   
@@ -9,17 +9,19 @@
       <!-- First name -->
       <label class="form-label" for="regFirst">First name</label>
       <input type="text" id="regFirst" class="form-control">
-      
+      <p id = "regerror" class = "errorm "></p>
     </div>
     <div class="col">
       <!-- Last name -->
       <label class="form-label" for="reglast">Last name</label>
       <input type="text" id="reglast" class="form-control">
+       <p id = "regerror2" class = "errorm"></p>
     </div>
   </div>
           <!-- E-mail -->
           <label  for="regemail">Email</label>
-     <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4">
+     <input type="email" id="regemail" class="form-control mb-4" multiple>
+      <p id = "regerror3" class = "errorm"></p>
         
                 
   <!-- Password -->
@@ -32,8 +34,9 @@
   </small>
   </div>
    <div class="col">
-     <label  for="regcontact">Contact Number:</label>
-  <input type="number" id="regcontact" class="form-control" >
+     <label  for="regcontact">Contact Number:</label> 
+  <input type="tel" id="regcontact" class="form-control" pattern= "[0][9][0-9]{2} [0-9]{3} [0-9]{4}" placeholder="09XX XXX XXXX" >
+  <p id = "regerror4" class = "errorm"></p>
    </div>
   </div>
     <div class="form-row mb-2">
@@ -48,6 +51,7 @@
     <div class="form-outline col">
   <label  for="regcheck">Day of checking the apartment:</label>
   <input type="date" id="regcheck" class="form-control" >
+  <p id = "regerror5" class = "errorm"></p>
   </div>
    <div class="col">
      <label  for="regpayment">Ideal day of rent payment:</label>
@@ -62,6 +66,6 @@
 
                  
   <!-- Sign up button -->
-  <button class="btn btn-info my-4 btn-block waves-effect waves-light" type="submit">Register</button>
+  <button class="btn btn-info my-4 btn-block waves-effect waves-light" type="button" id="btnreg">Register</button>
                </form>
   </div>
