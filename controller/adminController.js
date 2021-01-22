@@ -1,13 +1,16 @@
 const tenantModel = require('../model/tenants');
 const unitModel = require('../model/unit');
-
+const RegistrantModel = require('../model/registrant');
 
 exports.RegisterList = function(req,res){
-    res.render('registerlist', {
-        reglist:[
-          { Name:"Kimberly Yao", email:"kimberlyao@gmail.com",contact:"09064515880",UnitNo:"1004", DayChecking:"January 30, 2020", iday:"30", status:"Pending"},
-          {Name:"Charlene Yao", email:"charleneyaoo@dlsu.edu.ph",contact:"09064515880",UnitNo:"1005", DayChecking:"January 30, 2020",  iday:"30",status:"Pending"}
-        ]});
+  RegistrantModel.All(function(result){
+      for(var i=0; i<result.length;i++){
+        var temp1 = new Date(result[i].dayCheck);
+        result[i].dayCheck = temp1.toDateString();
+      }
+      console.log(result);
+    res.render('registerlist', {reglist:result});
+  })
 }
 
 exports.Problemlist = function(req,res){
@@ -48,4 +51,25 @@ exports.TenantList = function(req,res){
 
 exports.home = function(req,res){
   res.render('admin');
+}
+
+exports.CreateTenant = function(req,res){
+  var name = req.body.name;
+  var email = req.body.email;
+  var contactno = req.body.contactno;
+  var daypayment = req.body.daypayment;
+  RegistrantModel.findEmail(email,function(result){
+    const unitid = result.desunit;
+    const password = result.password;
+
+    tenantModel.Create(name,password,email,contactno,daypayment,unitid,function(err,resul){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log(resul);
+      }
+    })
+  })
+
 }

@@ -11,4 +11,5 @@ router.get('/login', function(req, res) {
 });
 router.get('/register', indexController.UnitList);
 
+router.post('/register', indexController.CreateRegistrant);
 module.exports = router;

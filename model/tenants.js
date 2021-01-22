@@ -1,6 +1,6 @@
 const mongoose = require('./connection');
 const TenantSchema = new mongoose.Schema({
-    username:  { type : String, required : true},
+    name:  { type : String, required : true},
     password: { type : String, required : true},
     email: { type : String, required : true},
     contactno: {type:Number, required: true},
@@ -10,3 +10,19 @@ const TenantSchema = new mongoose.Schema({
 });
 
 const tenantmodel = mongoose.model('tenants', TenantSchema);
+
+exports.Create = function(name,password,email,contactno,daypayment,unit,next){
+    var tenant = new tenantmodel({
+        name: name,
+        password: password,
+        email: email,
+        contactno: contactno,
+        daypayment: daypayment,
+        mostmissed: 0,
+        unit: unit
+    })
+    tenant.save(function(err,result){
+        next(err,result);
+    })
+
+}
