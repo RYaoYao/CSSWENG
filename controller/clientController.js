@@ -8,5 +8,14 @@ exports.Report = function(req,res){
 }
 
 exports.ReportList = function(req,res){
-    res.render('CheckStatus', {active:{active_problem: true}});
+    res.render('CheckStatus', {
+      unitprob: [{probtype:"Plumbing",   problemdes:"Clogged Faucet" ,  probstatus: "Contacting "},
+      {probtype:"Others",   problemdes:"Gas Leak" ,  probstatus: "Sent to Owner"} ],
+      active:{active_problem: true}});
+}
+
+
+exports.ShowInfo = function(req,res){
+    res.render('info', {
+      active:{active_info: true}});
 }
