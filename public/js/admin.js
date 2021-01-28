@@ -8,7 +8,7 @@ $(document).ready( function () {
                 text: 'My button',
                 action: function ( ) {
                     var edata  = table.row({selected:true}).data();
-                    console.log(table.row({selected:true}).data());
+                   
                     myFunction(edata);
                 }
             }
@@ -22,7 +22,6 @@ $(document).ready( function () {
                 text: 'Edit',
                 action: function ( ) {
                     var edata  = regstat.row({selected:true}).data();
-                    console.log(regstat.row({selected:true}).data());
                     EditRegistration(edata);
                 }
             }
@@ -35,7 +34,6 @@ $(document).ready( function () {
                 text: 'Edit',
                 action: function ( ) {
                     var edata  = probstat.row({selected:true}).data();
-                    console.log(probstat.row({selected:true}).data());
                     EditProblemStat(edata);
                 }
             }

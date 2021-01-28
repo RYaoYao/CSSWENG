@@ -8,7 +8,6 @@ exports.RegisterList = function(req,res){
         var temp1 = new Date(result[i].dayCheck);
         result[i].dayCheck = temp1.toDateString();
       }
-      console.log(result);
     res.render('registerlist', {reglist:result});
   })
 }
@@ -27,7 +26,6 @@ exports.CalendarShow = function(req,res){
     });
 }
 exports.createunit = function(req,res){
-  console.log(req.body);
   var unitno = req.body.unitno;
   var size = req.body.size;
   var payment = req.body.payment;
@@ -71,7 +69,6 @@ exports.CreateTenant = function(req,res){
   })
 
   RegistrantModel.update(email,"Approved",function(err4,resu){
-    console.log("goods");
   })
 
 }

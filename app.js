@@ -8,6 +8,7 @@ const app = express();
 const port = 9090;
 
 const indexRouter = require('./routes/index');
+const clientRouter = require('./routes/clientRoutes');
 const adminRouter = require('./routes/adminRoutes');
 app.engine( 'hbs', exphbs({
     extname: 'hbs', // configures the extension name to be .hbs instead of .handlebars
@@ -31,4 +32,5 @@ app.listen(port, function() {
 });
 
 app.use('/',indexRouter);
+app.use('/',clientRouter);
 app.use('/admin/',adminRouter);
