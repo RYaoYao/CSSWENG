@@ -6,5 +6,4 @@ const ProblemSchema = new mongoose.Schema({
  status: {type: String, required:true }
 
 });
-ProblemSchema.plugin(autoIncrement.plugin, {model:'problems', field:'problemid'});  
 const  ProblemsModel = mongoose.model('problems', ProblemSchema);

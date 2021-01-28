@@ -1,0 +1,33 @@
+{{> nav3 active}}
+
+<div class= "container mt-5 p-5">
+<form class="border border-light p-5">
+
+    <p class="h4 mb-4 text-center">Report a problem     </p>
+
+
+    <label for="defaultSelect">Problem Type</label>
+    <select id="defaultSelect" class="browser-default custom-select mb-4">
+        <option value="" disabled="">Choose option</option>
+        <option value="Plumbing" selected="">Plumbing</option>
+        <option value="Electical">Electical</option>
+        <option value="Piping">Piping</option>
+        <option value="Others">Others</option>
+    </select>
+
+    <label for="problemdesc">Description</label>
+    <textarea id="problemdesc" class="form-control rounded-0 mb-5" placeholder="Message"></textarea>
+
+    <div class="input-group mb-4">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput">
+            <label class="custom-file-label" for="fileInput">Send a screenshot</label>
+        </div>
+    </div>
+
+    <button class="btn btn-info btn-block" type="submit">Send</button>
+</form>
+  </div>

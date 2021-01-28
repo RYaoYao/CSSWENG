@@ -1,7 +1,11 @@
 
 .nav-item.mr-2 a{
-    color: #6f76db;
+    color: #5d66e9ef;
     font-size: 14;
+}
+.nav-item.mr-2.active a{
+  color: #aab0fd;
+  font-size: 14;
 }
 .navbar-brand.ml-5 {
     color:#8b92ec;
