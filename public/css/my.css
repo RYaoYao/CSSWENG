@@ -1,19 +1,20 @@
 
 .nav-item.mr-2 a{
-    color: #5d66e9ef;
+    color: #828af5ef;
     font-size: 14;
 }
 .nav-item.mr-2.active a{
-  color: #aab0fd;
+  color: #525af3ef;
+    font-weight: bolder;
   font-size: 14;
 }
 .navbar-brand.ml-5 {
-    color:#8b92ec;
+    color:#a5aefc;
     font-weight:500;
     font-size: 14;
 }
-.navbar {
-    background-color: #210057;
+.navbar, footer {
+  background-color: black;
     padding: 16px;
 }
         .view.intro-2 {

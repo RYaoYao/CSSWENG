@@ -21,18 +21,8 @@ exports.Count = function(next){
     })
 }
 
-exports.Create = function(regisno,fullname,email,password,contactno,dayCheck,daypayment, desunit,status, next){
-    var reg = new RegistrantModel({
-        regisno: regisno,
-        fullname: fullname,
-        email: email,
-        password: password,
-        contactno: contactno,
-        dayCheck: dayCheck,
-        daypayment: daypayment,
-        desunit: desunit,
-        status: status,
-    });
+exports.Create = function(objs, next){
+        var reg = new RegistrantModel(objs);
     reg.save(function(err,result){
         next(err,result);
     })
