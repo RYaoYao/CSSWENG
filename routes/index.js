@@ -1,10 +1,13 @@
 const router = require('express').Router();
 const indexController = require('../controller/indexController');
-router.get('/', (req, res) => {
+const { isPublic} = require('../middlewares/checkSession');
+router.get('/', isPublic,(req, res) => {
   res.render('home' );
 });
-
-router.get('/login', function(req, res) {
+router.get('/home', isPublic,(req, res) => {
+  res.render('home' );
+});
+router.get('/login',isPublic, function(req, res) {
   res.render('login', {
     title: 'Welcome',
   })

@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const handlebars = require('handlebars');
-const mongoose = require('./model/connection');
+const mongoose = require('./models/connection');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
@@ -10,7 +10,7 @@ const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
 
 const app = express();
-const port = 9090;
+const port = 3000;
 
 const authsRouter = require('./routes/auth');
 const indexRouter = require('./routes/index');
@@ -56,5 +56,5 @@ app.use((req, res, next) => {
 
 app.use('/', authsRouter);
 app.use('/',indexRouter);
-app.use('/',clientRouter);
+app.use('/user/',clientRouter);
 app.use('/admin/',adminRouter);

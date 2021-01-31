@@ -1,6 +1,6 @@
-const problemModel = require('../model/problems');
-const unitModel = require('../model/unit');
-const RegistrantModel = require('../model/registrant');
+const problemModel = require('../models/problems');
+const unitModel = require('../models/unit');
+const RegistrantModel = require('../models/registrant');
 
 
 exports.Report = function(req,res){
