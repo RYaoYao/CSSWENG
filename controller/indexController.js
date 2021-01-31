@@ -25,7 +25,11 @@ exports.CreateRegistrant = function(req,res){
                 }
                 else{
                     RegistrantModel.Count(function(result2){
-                        const count = result2;
+                      var count = 1;
+                      if(result2[0] != null)
+                         {count = parseInt(result2[0].regisno) + 1;}
+                        
+
                         unitModel.find(req.body.desunit, function(resq){
                             const unitid= resq._id;
                             bcrypt.hash(req.body.password,10,(err3,hashed) =>{

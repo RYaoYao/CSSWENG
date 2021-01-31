@@ -9,4 +9,6 @@ router.get('/tenant', adminController.TenantList);
    router.get('/',isPrivateAdmin,adminController.home)
   router.post('/CreateUnit',adminController.createunit)
   router.post('/registration-status', adminController.CreateTenant);
+  router.post('/Reject', adminController.UpdatetReject);
+  router.post('/UpdateTenant',adminController.UpdateTenant);
   module.exports = router;

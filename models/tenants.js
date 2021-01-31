@@ -51,3 +51,16 @@ exports.findEmail = function(email,next){
         next(err, result);
     })
 }
+
+exports.update = function(email,contactno,daypayment,mosmissed,next){
+    var query = {email:email};
+    tenantmodel.findOne(query).exec(function(err, result){
+        result.contactno = contactno;
+        result.daypayment = daypayment;
+        result.mosmissed = mosmissed;
+        result.save(function(err2,res){
+                next(res);
+        })
+      
+    })
+}

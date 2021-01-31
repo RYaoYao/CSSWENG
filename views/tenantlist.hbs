@@ -34,7 +34,7 @@
         <h4 class = "modal-title text-center">Tenant Information</h4>
     </div>
     <div class="modal-body">
-        <form role="form" method="POST" action="">
+        <form id="edittenant">
         <div class="form-group">
         <label>Unit No</label>
         <div>
@@ -53,10 +53,17 @@
         <input type="text" id="editemail" class= "form-control input-lg" readonly>
         </div>
         </div>
+       
         <div class="form-group">
+        <label>Rent</label>
+        <div>
+        <input type="text" id="editrent" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+         <div class="form-group">
         <label>Contact Number</label>
         <div>
-        <input type="phone" id="editcontact" class= "form-control input-lg" readonly>
+        <input type="phone" id="editcontact" class= "form-control input-lg">
         </div>
         </div>
         <div class="form-group">
@@ -65,13 +72,8 @@
         <input type="text" id="editpay" class= "form-control input-lg">
         </div>
         </div>
-  
-        <div class="form-group">
-        <label>Rent</label>
-        <div>
-        <input type="text" id="editrent" class= "form-control input-lg">
-        </div>
-        </div>
+
+        
         <div class="form-group">
         <label>Months Missed</label>
         <div>
@@ -80,7 +82,7 @@
         </div>
         
            <div class="form-group">
-          <button type="submit" class="btn btn-success btn-block">Submit Edit</button>
+          <button type="button" id="edtsub"class="btn btn-success btn-block">Submit Edit</button>
                     </div>
     </form>
     </div>

@@ -41,7 +41,7 @@ exports.findAll = function(next){
 }
 
 exports.Count = function(next){
-    ProblemsModel.count({},function(err, result){
+    ProblemsModel.find({}).sort({_id:-1}).limit(1).then(function(err, result){
         next(result);
     })
 }

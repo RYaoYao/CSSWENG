@@ -31,7 +31,12 @@ exports.createProblem = function(req,res){
   var status =  req.body.status;
   var tenant = req.session.tenant;
   problemModel.Count(function(result){
-      const count = result;
+    var count;
+    if(result)
+      { count = result;}
+      else{
+          count = 1;
+      }
       const newProblem = {
         problemid: count,
         problemtype: problemtype,
@@ -39,11 +44,11 @@ exports.createProblem = function(req,res){
         tenant:tenant,
         status:status
       }
-      problemModel.create(newProblem,function(err,result){
+      problemModel.create(newProblem,function(err,res){
         if(err)
           console.log(err);
         else
-          console.log(result);
+          console.log(res);
       })
   })
 }

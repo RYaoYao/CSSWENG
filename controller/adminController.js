@@ -32,11 +32,11 @@ exports.CalendarShow = function(req,res){
       start: new Date(datel.setDate(result[index].daypayment)),
       allDay: true
       }
-      res.render('calendar', {
-        events:events,
-        eventJSON: JSON.stringify(events)
-       });
    }
+   res.render('calendar', {
+    events:events,
+    eventJSON: JSON.stringify(events)
+   });
     });
   }
    
@@ -83,7 +83,26 @@ exports.CreateTenant = function(req,res){
     })
   })
 
-  RegistrantModel.update(email,"Approved",function(err4,resu){
+  RegistrantModel.update(email,"Accepted",function(err4,resu){
   })
+
+}
+
+exports.UpdatetReject = function(req,res){
+  var regisno = req.body.regisno;
+  var status = req.body.status;
+console.log(status);
+  RegistrantModel.updatebyReg(regisno,status,function(err,result){
+    console.log(result);
+  })
+}
+exports.UpdateTenant = function(req,res){
+  var email = req.body.email;
+  var contactno = req.body.contactno;
+  var daypayment = req.body.daypayment;
+  var mosmissed = req.body.mosmissed;
+tenantModel.update(email,contactno,daypayment,mosmissed,function(result){
+  console.log(result);
+});
 
 }

@@ -51,13 +51,14 @@ function myFunction(param) {
   
 }
 function EditRegistration(param) {
-    $("#eregname").val(param[0]);
-     $("#eregemail").val(param[1]);
-     $("#eregcon").val(param[2]);
-     $("#eregunit").val(param[3]);
-     $("#eregday").val(param[4]);
-     $("#eideal").val(param[5]);
-     $("#eregstatus").val(param[6]);
+    $("#eregno").val(param[0]);
+    $("#eregname").val(param[1]);
+     $("#eregemail").val(param[2]);
+     $("#eregcon").val(param[3]);
+     $("#eregunit").val(param[4]);
+     $("#eregday").val(param[5]);
+     $("#eideal").val(param[6]);
+     $("#eregstatus").val(param[7]);
      $("#regismodal").modal('show');
 
 }
@@ -103,7 +104,6 @@ $('#UnitForm').on('click','#btnunit' ,function(){
 });
 $('#editreg').on('click','#edrsub',function(){
    var status =  $("#eregstatus").val();
-   console.log($("#eregcon").val())
    console.log(status == "Accepted")
    if (status == "Accepted"){
    var  newtenant = {
@@ -113,6 +113,7 @@ $('#editreg').on('click','#edrsub',function(){
     unit: $("#eregunit").val(),
     daypayment: $("#eideal").val()
 }
+
 $.post('./registration-status', newtenant, function(data, status){
     if(data.success){
         console.log(success);
@@ -121,11 +122,32 @@ $.post('./registration-status', newtenant, function(data, status){
     
    }
    else if(status == "Rejected"){
-    $("#eregstatus").val();
+       var update = {
+           regisno: $('#eregno').val(),
+           status: status
+       }
+    $.post('./Reject', update, function(data, status2){
+        if(data.success){
+            console.log(success)
+        }
+    })
 
    }else{
        console.log("nothing")
    }
 })
+$('#edittenant').on('click','#edtsub',function(){
+    var updateten = {
+    email :  $("#editemail").val(),
+    contactno : $("#editcontact").val(),
+    daypayment : $("#editpay").val(),
+    mosmissed : $("#editmos").val()
+    }
+    $.post('./UpdateTenant', updateten, function(data, status){
+        if(data.success){
+            console.log(success);
+        }
+    });
 });
 
+});
