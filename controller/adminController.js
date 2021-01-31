@@ -23,10 +23,23 @@ exports.Problemlist = function(req,res){
 }
 
 exports.CalendarShow = function(req,res){
-    res.render('calendar', {
-     
+  tenantModel.findAll(function(result){
+    var events = []
+    var datel = new Date();
+    for (let index = 0; index < result.length; index++) {
+      events[index] = {
+      title : result[index].unit.unitno,
+      start: new Date(datel.setDate(result[index].daypayment)),
+      allDay: true
+      }
+      res.render('calendar', {
+        events:events,
+        eventJSON: JSON.stringify(events)
+       });
+   }
     });
-}
+  }
+   
 exports.createunit = function(req,res){
   var unitno = req.body.unitno;
   var size = req.body.size;
