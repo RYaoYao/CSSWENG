@@ -1,6 +1,7 @@
-const unitModel = require('../model/unit');
-const RegistrantModel = require('../model/registrant');
-const TenantModel = require('../model/tenants');
+const unitModel = require('../models/unit');
+const RegistrantModel = require('../models/registrant');
+const TenantModel = require('../models/tenants');
+const adminModel = require('../models/admins');
 const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
 
@@ -59,13 +60,17 @@ exports.loginUser = (req, res) => {
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
-      const { email, password } = req.body;
-
-if(email == "admin@gmail.com" && password == "password123!"){
-    console.log("in here");
-    req.session.user = "admin";
-    req.session.name = "admin";
-    res.redirect('/admin/');
+      const { email, pass } = req.body;
+      console.log(pass);
+      console.log(email == "admin@gmail.com" && pass == "password123!");
+if(email === "admin1@gmail.com" && pass === "password123!"){
+    adminModel.findEmail(email,function(result){
+      console.log(result);
+      req.session.admin = result._id;
+      req.session.name = result.name;
+      res.redirect('/admin/');
+    });
+    
 }else{
       TenantModel.findEmail(email, (err, user) => {
         if (err) {
@@ -79,7 +84,7 @@ if(email == "admin@gmail.com" && password == "password123!"){
               // passwords match (result == true)
               if (result) {
                 // Update session object once matched!
-                req.session.user = user._id;
+                req.session.tenant = user._id;
                 req.session.name = user.name;
 
                 res.redirect('/ProfileInfo');
@@ -107,6 +112,7 @@ if(email == "admin@gmail.com" && password == "password123!"){
     };
     
     exports.logoutUser = (req, res) => {
+      console.log("I WENT IN HERE");
       if (req.session) {
         req.session.destroy(() => {
           res.clearCookie('connect.sid');

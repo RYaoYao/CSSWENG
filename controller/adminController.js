@@ -1,6 +1,6 @@
-const tenantModel = require('../model/tenants');
-const unitModel = require('../model/unit');
-const RegistrantModel = require('../model/registrant');
+const tenantModel = require('../models/tenants');
+const unitModel = require('../models/unit');
+const RegistrantModel = require('../models/registrant');
 
 exports.RegisterList = function(req,res){
   RegistrantModel.All(function(result){
