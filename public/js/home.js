@@ -168,5 +168,28 @@ $(document).ready( function () {
 });
 $('#clientproblist').DataTable();
 
+$('#probrepo').on('click','#btnprobsub',function(){
+    var go = true;
+    var probtype = $('#probtypesel').val();
+    var probdesc = $('#problemdesc').val();
+    if(probdesc == ''){
+        go = false;
+        $('#problemdesc').css("border-color","red");
+    }
 
+    if(go == true){
+        console.log("not here");
+        var newProblem = {
+          problemtype: probtype,
+          problemdesc: probdesc,
+          status: "Sent to Landlord"
+        }
+        $.post('CreateProblem', newProblem, function(data, status){
+            if(data.success){
+                console.log(success);
+            }
+    });
+}
+
+});
 });

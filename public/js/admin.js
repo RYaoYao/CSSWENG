@@ -64,9 +64,10 @@ function EditRegistration(param) {
 function EditProblemStat(param) {
     $("#eprobid").val(param[0]);
      $("#eprobunit").val(param[1]);
-     $("#eprobtype").val(param[2]);
-     $("#eprobdes").val(param[3]);
-     $("#eprobstat").val(param[4]);
+     $("#eprobphone").val(param[2]);
+     $("#eprobtype").val(param[3]);
+     $("#eprobdes").val(param[4]);
+     $("#eprobstat").val(param[5]);
      $("#probmodal").modal('show');
 }
 

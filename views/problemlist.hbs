@@ -7,6 +7,7 @@
                 <tr>
                     <th>Problem Id</th>
                     <th>Unit No.</th>
+                    <th>Contact No.</th>
                     <th>Problem Type</th>
                     <th>Problem Description</th>
                     <th>Status</th>
@@ -16,11 +17,12 @@
             <tbody>
             {{#each problist}}
              <tr>
-                 <td>{{probid}}</td>
-                <td>{{unitno}}</td>
-                <td>{{probtype}}</td>
-                <td>{{problemdes}}</td>
-                <td>{{probstatus}}</td>
+                 <td>{{problemid}}</td>
+                <td>{{tenant.unit.unitno}}</td>
+                <td>{{tenant.contactno}}</td>
+                <td>{{problemtype}}</td>
+                <td>{{problemdesc}}</td>
+                <td>{{status}}</td>
 
             </tr>
 {{/each}}
@@ -47,6 +49,12 @@
         <label>Unit No.</label>
         <div>
         <input type="number" id="eprobunit" class= "form-control input-lg" readonly>
+        </div>
+        </div>
+         <div class="form-group">
+        <label>Contact no.</label>
+        <div>
+        <input type="phone" id="eprobphone" class= "form-control input-lg" readonly>
         </div>
         </div>
         <div class="form-group">
