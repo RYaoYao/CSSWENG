@@ -19,7 +19,6 @@ exports.isPrivate = (req, res, next) => {
   }
   exports.isPublic = (req, res, next) => {
     // If authenticated, go to home page
-    console.log(req.session);
     if(req.session.tenant){
       res.redirect('/user/')
     }else if(req.session.admin){

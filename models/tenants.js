@@ -38,6 +38,13 @@ exports.findAll = function(next){
     })
 }
 
+exports. findID = function(ID,next){
+    var query = {_id:ID };
+    tenantmodel.findOne(query).populate('unit').exec(function(err,result){
+        next(err,result);
+    })
+}
+
 exports.findEmail = function(email,next){
     var query = {email:email};
     tenantmodel.findOne(query).exec(function(err, result){

@@ -1,6 +1,7 @@
 const tenantModel = require('../models/tenants');
 const unitModel = require('../models/unit');
 const RegistrantModel = require('../models/registrant');
+const problemModel = require('../models/problems');
 
 exports.RegisterList = function(req,res){
   RegistrantModel.All(function(result){
@@ -13,18 +14,32 @@ exports.RegisterList = function(req,res){
 }
 
 exports.Problemlist = function(req,res){
+  problemModel.findAll(function(result){
     res.render('problemlist', {
-        problist:[
-          { probid:"0001", unitno:"1005",probtype:"Plumbing",problemdes:"Water not falling down", probstatus:"Contacting.."}
-      
-        ]});
+      problist: result
+      });
+  })
+    
 }
 
 exports.CalendarShow = function(req,res){
-    res.render('calendar', {
-     
+  tenantModel.findAll(function(result){
+    var events = []
+    var datel = new Date();
+    for (let index = 0; index < result.length; index++) {
+      events[index] = {
+      title : result[index].unit.unitno,
+      start: new Date(datel.setDate(result[index].daypayment)),
+      allDay: true
+      }
+      res.render('calendar', {
+        events:events,
+        eventJSON: JSON.stringify(events)
+       });
+   }
     });
-}
+  }
+   
 exports.createunit = function(req,res){
   var unitno = req.body.unitno;
   var size = req.body.size;

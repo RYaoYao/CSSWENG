@@ -64,9 +64,10 @@ function EditRegistration(param) {
 function EditProblemStat(param) {
     $("#eprobid").val(param[0]);
      $("#eprobunit").val(param[1]);
-     $("#eprobtype").val(param[2]);
-     $("#eprobdes").val(param[3]);
-     $("#eprobstat").val(param[4]);
+     $("#eprobphone").val(param[2]);
+     $("#eprobtype").val(param[3]);
+     $("#eprobdes").val(param[4]);
+     $("#eprobstat").val(param[5]);
      $("#probmodal").modal('show');
 }
 
@@ -93,7 +94,7 @@ $('#UnitForm').on('click','#btnunit' ,function(){
                 payment: unitpay,
                 status: status
             }
-            $.post('admin', newunit, function(data, status){
+            $.post('CreateUnit', newunit, function(data, status){
                 if(data.success){
                     console.log(success);
                 }
@@ -128,10 +129,3 @@ $.post('./registration-status', newtenant, function(data, status){
 })
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth'
-    });
-    calendar.render();
-  });

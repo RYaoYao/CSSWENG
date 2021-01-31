@@ -1,11 +1,12 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
-const handlebars = require('handlebars');
+const Handlebars = require('handlebars');
 const mongoose = require('./models/connection');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
 
@@ -27,6 +28,8 @@ app.engine( 'hbs', exphbs({
     defaultView: 'main',
     layoutsDir: path.join(__dirname, '/views/layouts'), 
     partialsDir: path.join(__dirname, '/views/partials'), 
+    handlebars: allowInsecurePrototypeAccess(Handlebars)
+    
   }));
 
   app.set('view engine', 'hbs');

@@ -1,13 +1,13 @@
 {{> nav3 active}}
 
 <div class= "container mt-5 p-5">
-<form class="border border-light p-5">
+<form id="probrepo" class="border border-light p-5">
 
-    <p class="h4 mb-4 text-center">Report a problem     </p>
+    <p class="h4 mb-4 text-center">Report a problem  </p>
 
 
-    <label for="defaultSelect">Problem Type</label>
-    <select id="defaultSelect" class="browser-default custom-select mb-4">
+    <label for="probtypesel">Problem Type</label>
+    <select id="probtypesel" class="browser-default custom-select mb-4">
         <option value="" disabled="">Choose option</option>
         <option value="Plumbing" selected="">Plumbing</option>
         <option value="Electical">Electical</option>
@@ -28,6 +28,7 @@
         </div>
     </div>
 
-    <button class="btn btn-info btn-block" type="submit">Send</button>
+    <button id='btnprobsub' type = "button" class="btn btn-info btn-block">Send</button>
 </form>
   </div>
+
