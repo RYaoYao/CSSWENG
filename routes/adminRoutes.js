@@ -7,6 +7,6 @@ router.get('/tenant', adminController.TenantList);
   router.get('/registration-status',isPrivateAdmin, adminController.RegisterList);
   router.get('/problem-status',isPrivateAdmin, adminController.Problemlist);
    router.get('/',isPrivateAdmin,adminController.home)
-  router.post('/',adminController.createunit)
+  router.post('/CreateUnit',adminController.createunit)
   router.post('/registration-status', adminController.CreateTenant);
   module.exports = router;

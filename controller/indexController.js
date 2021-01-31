@@ -33,20 +33,21 @@ exports.CreateRegistrant = function(req,res){
                                     regisno: count,
                                     fullname: req.body.fullname,
                                     email: req.body.email,
-                                    password: (req.body.password. hashed),
+                                    password: (req.body.password, hashed),
                                     contactno: req.body.contactno,
                                     dayCheck:req.body.dayCheck,
-                                    daypayment:req.body.daypaymen,
+                                    daypayment:req.body.daypayment,
                                     desunit: unitid,
                                     status: req.body.status,
                                 }
+                                RegistrantModel.Create(newReg,function(err,result){
+                                  if(err)
+                                      console.log(err);
+                                  else
+                                      console.log(result);
+                              });
                             })
-                            RegistrantModel.Create(newReg,function(err,result){
-                                    if(err)
-                                        console.log(err);
-                                    else
-                                        console.log(result);
-                                });
+                          
                         })
                     });
                 }
@@ -80,14 +81,15 @@ if(email === "admin1@gmail.com" && pass === "password123!"){
         } else {
           // Successful query
           if (user) {
-            bcrypt.compare(password, user.password, (err, result) => {
+            
+            bcrypt.compare(pass, user.password, (err, result) => {
               // passwords match (result == true)
               if (result) {
                 // Update session object once matched!
                 req.session.tenant = user._id;
                 req.session.name = user.name;
 
-                res.redirect('/ProfileInfo');
+                res.redirect('/user/');
 
               } else {
                 // passwords don't match

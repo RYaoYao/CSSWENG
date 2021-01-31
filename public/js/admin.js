@@ -93,7 +93,7 @@ $('#UnitForm').on('click','#btnunit' ,function(){
                 payment: unitpay,
                 status: status
             }
-            $.post('admin', newunit, function(data, status){
+            $.post('CreateUnit', newunit, function(data, status){
                 if(data.success){
                     console.log(success);
                 }
