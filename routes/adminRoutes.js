@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const adminController = require('../controller/adminController');
+const { isPrivate } = require('../middleware/checkSession');
 router.get('/tenant', adminController.TenantList);
 
   router.get('/rent-calendar', adminController.CalendarShow);

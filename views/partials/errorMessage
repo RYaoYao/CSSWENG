@@ -1,0 +1,16 @@
+  
+{{#if error_msg}}
+<div class="row mb-4">
+  <div class="col card-panel animated fadeIn " style="background-color:rgba(255,0,0,0.35);" >
+    <h6 class="text-danger" ><strong>{{error_msg}}</strong></h6>
+  </div>
+</div>
+{{/if}}
+
+{{#if success_msg}}
+<div class="row mb-4">
+  <div class="col card-panel animated fadeIn" style="background-color:rgba(0, 255, 0, 0.35);">
+    <h6 class="text-success"><strong>{{success_msg}}</strong></h6>
+  </div>
+</div>
+{{/if}}

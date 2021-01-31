@@ -36,7 +36,7 @@ $(document).ready( function () {
         }
         else
         {
-            go = true;
+      
             $('#regFirst').css("border-color","");
             $('#regerror').empty();
         }
@@ -52,7 +52,7 @@ $(document).ready( function () {
         }
         else
         {
-            go = true;
+     
             $('#reglast').css("border-color","");
             $('#regerror2').empty();
         }
@@ -67,7 +67,7 @@ $(document).ready( function () {
             },1000);
         }else
         {
-            go = true;
+       
             $('#regemail').css("border-color","");
             $('#regerror3').empty();
         }
@@ -83,7 +83,7 @@ $(document).ready( function () {
             },1000);
         }else
         {
-            go = true;
+ 
             $('#regpass').css("border-color","");
         }
         if(contactno.length < 11){
@@ -98,7 +98,7 @@ $(document).ready( function () {
         }
         else
         {
-            go = true;
+     
             $('#regcontact').css("border-color","");
             $('#regerror4').empty();
         }
@@ -114,7 +114,7 @@ $(document).ready( function () {
         }
         else
         {
-            go = true;
+        
             $('#regpayment').css("border-color","");
         }
         if(dayCheck == ''){
@@ -141,7 +141,7 @@ $(document).ready( function () {
             },1000);
         }
         else{
-            go = true;
+ 
             $('#regcheck').css("border-color","");
             $('#regerror5').empty();
         }
@@ -164,9 +164,9 @@ $(document).ready( function () {
                 }
             })
         }
-      $('#clientproblist').DataTable();
+      
 });
-
+$('#clientproblist').DataTable();
 
 
 });

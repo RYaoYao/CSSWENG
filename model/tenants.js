@@ -6,7 +6,8 @@ const TenantSchema = new mongoose.Schema({
     contactno: {type:String, required: true},
     daypayment: {type:Number, required: true},
     mosmissed: {type:Number, required: true},
-    unit: {type: mongoose.Schema.Types.ObjectId, ref: 'units'}
+    unit: {type: mongoose.Schema.Types.ObjectId, ref: 'units'},
+
 });
 
 const tenantmodel = mongoose.model('tenants', TenantSchema);
@@ -34,5 +35,12 @@ exports.findAll = function(next){
             tenObj.push(element.toObject());
         });
         next(tenObj);
+    })
+}
+
+exports.findEmail = function(email,next){
+    var query = {email:email};
+    tenantmodel.findOne(query).exec(function(err, result){
+        next(err, result);
     })
 }
