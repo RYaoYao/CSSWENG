@@ -9,14 +9,18 @@ exports.RegisterList = function(req,res){
         var temp1 = new Date(result[i].dayCheck);
         result[i].dayCheck = temp1.toDateString();
       }
-    res.render('registerlist', {reglist:result});
+    res.render('registerlist', {
+      reglist:result,
+      active:{active_reg: true}
+    });
   })
 }
 
 exports.Problemlist = function(req,res){
   problemModel.findAll(function(result){
     res.render('problemlist', {
-      problist: result
+      problist: result,
+      active:{active_problem: true}
       });
   })
     
@@ -35,7 +39,8 @@ exports.CalendarShow = function(req,res){
    }
    res.render('calendar', {
     events:events,
-    eventJSON: JSON.stringify(events)
+    eventJSON: JSON.stringify(events),
+    active:{active_calendar: true}
    });
     });
   }
@@ -62,7 +67,9 @@ exports.createunit = function(req,res){
 
 exports.TenantList = function(req,res){
   tenantModel.findAll(function(result){
-    res.render('tenantlist', {tenants:result});
+    res.render('tenantlist', {
+      tenants:result,
+      active:{active_tenant: true}});
     })
   }
     

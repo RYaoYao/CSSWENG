@@ -5,7 +5,7 @@ $(document).ready( function () {
     dom: 'Bfrtip',
         buttons: [
             {
-                text: 'My button',
+                text: 'Edit',
                 action: function ( ) {
                     var edata  = table.row({selected:true}).data();
                    

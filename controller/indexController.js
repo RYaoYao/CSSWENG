@@ -7,10 +7,13 @@ const { validationResult } = require('express-validator');
 
 exports.UnitList = function(req,res){
     unitModel.findAvailable(function(result){
-
+      if(result.length != 0)
         res.render('register',{units : result});
+      else
+        res.render('noRegister');
     });
 }
+
 
 exports.CreateRegistrant = function(req,res){
     RegistrantModel.findEmail(req.body.email, function(result){
