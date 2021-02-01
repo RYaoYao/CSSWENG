@@ -61,3 +61,7 @@ app.use('/', authsRouter);
 app.use('/',indexRouter);
 app.use('/user/',clientRouter);
 app.use('/admin/',adminRouter);
+
+app.use(function(req, res, next) {
+  res.status(404).render('404');
+});

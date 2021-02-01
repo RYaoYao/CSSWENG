@@ -16,7 +16,7 @@ const  RegistrantModel = mongoose.model('registrants', RegistrantSchema);
 
 
 exports.Count = function(next){
-    RegistrantModel.count({},function(err, result){
+    RegistrantModel.find({}).sort({_id:-1}).limit(1).exec(function(err,result){
         next(result);
     })
 }
@@ -54,3 +54,12 @@ exports.update = function(email, status, next){
         })
     })
 }
+
+exports.updatebyReg = function(regisno, status, next){
+    RegistrantModel.findOne({regisno:regisno}).exec(function(err,result){
+         result.status = status;
+         result.save(function(err2,res){
+             next(err2,res);
+         })
+     })
+ }

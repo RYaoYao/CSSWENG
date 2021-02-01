@@ -160,8 +160,24 @@ $(document).ready( function () {
             }
             $.post('register', registrant, function(data, status){
                 if(data.success){
-                    console.log(success);
-                }
+                    Swal.fire({
+                        icon: 'success',
+                       title:  data.message,
+                       animation: false,
+                        customClass: "animated fadeInDown"
+                    }).then(function(){
+                        window.location.assign('/login');
+                    });
+                }else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
             })
         }
       
@@ -184,11 +200,62 @@ $('#probrepo').on('click','#btnprobsub',function(){
           problemdesc: probdesc,
           status: "Sent to Landlord"
         }
-        $.post('CreateProblem', newProblem, function(data, status){
+        $.post('CreateProblem', newProblem, function(data){
             if(data.success){
-                console.log(success);
+                Swal.fire({
+                    icon: 'success',
+                   title:  data.message,
+                   animation: false,
+                    customClass: "animated fadeInDown"
+                }).then(function(){
+                    window.location.assign('./Problem_Status');
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                   title:  data.message,
+                   animation: false,
+                    customClass: "animated fadeInDown"
+                }).then(function(){
+                    window.location.reload();
+                });
             }
     });
+}
+
+});
+$('#contactform').on('click','#btnSubmit',function(){
+    var go = true;
+    var name = $('#txtName').val();
+    var email = $('#txtEmail').val();
+    var phone = $('#txtPhone').val();
+    var message = $('#txtMsg').val();
+    if(name == ''){
+        go = false;
+        $('#txtName').css("border-color","red");
+    }
+    if(email == ''){
+        go = false;
+        $('#txtEmail').css("border-color","red");
+    }
+    if(phone == ''){
+        go = false;
+        $('#txtPhone').css("border-color","red");
+    }
+    if(message == ''){
+        go = false;
+        $('#txtMsg').css("border-color","red");
+    }
+    if(go == true){
+                Swal.fire({
+            icon: 'success',
+                   title:  "Email to the owner has been sent",
+                   animation: false,
+                    customClass: "animated fadeInDown"
+                }).then(function(){
+                    window.location.assign('/home');
+                });
+
 }
 
 });

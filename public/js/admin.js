@@ -5,7 +5,7 @@ $(document).ready( function () {
     dom: 'Bfrtip',
         buttons: [
             {
-                text: 'My button',
+                text: 'Edit',
                 action: function ( ) {
                     var edata  = table.row({selected:true}).data();
                    
@@ -51,13 +51,14 @@ function myFunction(param) {
   
 }
 function EditRegistration(param) {
-    $("#eregname").val(param[0]);
-     $("#eregemail").val(param[1]);
-     $("#eregcon").val(param[2]);
-     $("#eregunit").val(param[3]);
-     $("#eregday").val(param[4]);
-     $("#eideal").val(param[5]);
-     $("#eregstatus").val(param[6]);
+    $("#eregno").val(param[0]);
+    $("#eregname").val(param[1]);
+     $("#eregemail").val(param[2]);
+     $("#eregcon").val(param[3]);
+     $("#eregunit").val(param[4]);
+     $("#eregday").val(param[5]);
+     $("#eideal").val(param[6]);
+     $("#eregstatus").val(param[7]);
      $("#regismodal").modal('show');
 
 }
@@ -94,16 +95,31 @@ $('#UnitForm').on('click','#btnunit' ,function(){
                 payment: unitpay,
                 status: status
             }
-            $.post('CreateUnit', newunit, function(data, status){
+            $.post('CreateUnit', newunit, function(data){
                 if(data.success){
-                    console.log(success);
+                    Swal.fire({
+                        icon: 'success',
+                       title:  data.message,
+                       animation: false,
+                        customClass: "animated fadeInDown"
+                    }).then(function(){
+                        window.location.reload();
+                    });
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                       title:  data.message,
+                       animation: false,
+                        customClass: "animated fadeInDown"
+                    }).then(function(){
+                        window.location.reload();
+                    });
                 }
             })
         }
 });
 $('#editreg').on('click','#edrsub',function(){
    var status =  $("#eregstatus").val();
-   console.log($("#eregcon").val())
    console.log(status == "Accepted")
    if (status == "Accepted"){
    var  newtenant = {
@@ -113,19 +129,168 @@ $('#editreg').on('click','#edrsub',function(){
     unit: $("#eregunit").val(),
     daypayment: $("#eideal").val()
 }
-$.post('./registration-status', newtenant, function(data, status){
+
+$.post('./registration-status', newtenant, function(data){
     if(data.success){
-        console.log(success);
+        Swal.fire({
+            icon: 'success',
+           title:  data.message,
+           animation: false,
+            customClass: "animated fadeInDown"
+        }).then(function(){
+            window.location.reload();
+        });
+    }else{
+        Swal.fire({
+            icon: 'error',
+           title:  data.message,
+           animation: false,
+            customClass: "animated fadeInDown"
+        }).then(function(){
+            window.location.reload();
+        });
     }
 })
     
    }
    else if(status == "Rejected"){
-    $("#eregstatus").val();
+       var update = {
+           regisno: $('#eregno').val(),
+           status: status
+       }
+    $.post('./Reject', update, function(data){
+        if(data.success){
+            Swal.fire({
+                icon: 'success',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
+        else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
+    })
 
    }else{
        console.log("nothing")
    }
 })
+$('#edittenant').on('click','#edtsub',function(){
+    var updateten = {
+    email :  $("#editemail").val(),
+    contactno : $("#editcontact").val(),
+    daypayment : $("#editpay").val(),
+    mosmissed : $("#editmos").val()
+    }
+    $.post('./UpdateTenant', updateten, function(data){
+        if(data.success){
+            Swal.fire({
+                icon: 'success',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
+    });
 });
-
+$('#edittenant').on('click','#btntdelete',function(){
+    var deleteten = {
+    email :  $("#editemail").val(),
+    }
+    $.post('./DeleteTenant', deleteten, function(data){
+        if(data.success){
+            Swal.fire({
+                icon: 'success',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
+    });
+});
+$('#editPform').on('click','#btnpdelete',function(){
+    var updateproblem = {
+    problemid :  $("#eprobid").val(),
+    }
+    $.post('./deleteProblem', updateproblem, function(data){
+        if(data.success){
+            Swal.fire({
+                icon: 'success',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
+    });
+});
+$('#editPform').on('click','#probedit',function(){
+    var updateproblem = {
+    problemid :  $("#eprobid").val(),
+    status : $("#eprobstat").val(),
+    }
+    $.post('./UpdateProblem', updateproblem, function(data){
+        if(data.success){
+            Swal.fire({
+                icon: 'success',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
+    });
+});
+});
