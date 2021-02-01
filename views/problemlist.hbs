@@ -36,7 +36,7 @@
         <h4 class = "modal-title text-center">Registrant Information</h4>
     </div>
     <div class="modal-body">
-        <form role="form" method="POST" action="">
+        <form id="editPform">
         <div class="form-group">
        
         <div class="form-group">
@@ -71,13 +71,23 @@
         <div class="form-group">
         <label>Status</label>
         <div>
-        <input type="text" id="eprobstat" class= "form-control input-lg">
+           <select id="eprobstat" class= "form-control input-lg">
+            <option value="Sent to Landlord">Sent to Landlord</option>
+            <option value="Contacting Agent">Contacting Agent</option>
+            <option value="Discussing options of fixing">Discussing options of fixing</option>
+            <option value="Agent on the way">Agent on the way</option>
+            <option value="On going">On going</option>
+            <option value="Solved">Solved</option>
+            </select>
         </div>
         </div>
  
            <div class="form-group">
-          <button type="submit" class="btn btn-success btn-block">Submit Edit</button>
+          <button type="button" id="probedit"class="btn btn-success btn-block">Submit Edit</button>
                     </div>
+                     <div class="form-group">
+          <button type="button" id="btnpdelete"class="btn btn-danger btn-block">Delete</button>
+            </div>
     </form>
     </div>
     </div>

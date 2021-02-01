@@ -64,3 +64,20 @@ exports.update = function(email,contactno,daypayment,mosmissed,next){
       
     })
 }
+
+exports.find2  = function(unitid,next){
+    var query = {unit:unitid};
+    tenantmodel.findOne(query).exec(function(err,result){
+            next(result);
+        });
+
+}
+
+exports.delete = function(tenantid,next){
+    tenantmodel.deleteOne({_id:tenantid},function(err,res){
+        if(err) throw err;
+        next(res);
+    })
+
+    
+}

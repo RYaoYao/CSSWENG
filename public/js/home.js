@@ -160,8 +160,24 @@ $(document).ready( function () {
             }
             $.post('register', registrant, function(data, status){
                 if(data.success){
-                    console.log(success);
-                }
+                    Swal.fire({
+                        icon: 'success',
+                       title:  data.message,
+                       animation: false,
+                        customClass: "animated fadeInDown"
+                    }).then(function(){
+                        window.location.assign('/login');
+                    });
+                }else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
             })
         }
       
@@ -186,7 +202,23 @@ $('#probrepo').on('click','#btnprobsub',function(){
         }
         $.post('CreateProblem', newProblem, function(data, status){
             if(data.success){
-                console.log(success);
+                Swal.fire({
+                    icon: 'success',
+                   title:  data.message,
+                   animation: false,
+                    customClass: "animated fadeInDown"
+                }).then(function(){
+                    window.location.assign('./Problem_Status');
+                });
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                   title:  data.message,
+                   animation: false,
+                    customClass: "animated fadeInDown"
+                }).then(function(){
+                    window.location.reload();
+                });
             }
     });
 }

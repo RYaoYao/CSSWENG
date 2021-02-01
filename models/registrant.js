@@ -16,7 +16,7 @@ const  RegistrantModel = mongoose.model('registrants', RegistrantSchema);
 
 
 exports.Count = function(next){
-    RegistrantModel.find({}).sort({_id:-1}).limit(1).then(function(result){
+    RegistrantModel.find({}).sort({_id:-1}).limit(1).exec(function(err,result){
         next(result);
     })
 }

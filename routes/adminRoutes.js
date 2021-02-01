@@ -11,4 +11,7 @@ router.get('/tenant', adminController.TenantList);
   router.post('/registration-status', adminController.CreateTenant);
   router.post('/Reject', adminController.UpdatetReject);
   router.post('/UpdateTenant',adminController.UpdateTenant);
+  router.post('/UpdateProblem',adminController.UpdateProblem);
+  router.post('/DeleteTenant',adminController.deleteone);
+  router.post('/DeleteProblem',adminController.deleteproblem);
   module.exports = router;

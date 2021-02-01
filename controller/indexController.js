@@ -45,10 +45,15 @@ exports.CreateRegistrant = function(req,res){
                                     status: req.body.status,
                                 }
                                 RegistrantModel.Create(newReg,function(err2,result3){
-                                  if(err2)
-                                      console.log(err2);
-                                  else
-                                      console.log(result3);
+                                  var resu;
+                                  if(err2){
+                                    resu = {success:false, message:"Registration Failed! Please contact owner."};
+                                  res.send(resu);
+                                }
+                                  else 
+                                  {resu = {success:true, message:"You have successfuly registered! Kindly wait for further updates on your application"};
+                                  res.send(resu);
+                                }
                               });
                             })
                           
@@ -66,11 +71,9 @@ exports.loginUser = (req, res) => {
 
     if (errors.isEmpty()) {
       const { email, pass } = req.body;
-      console.log(pass);
       console.log(email == "admin@gmail.com" && pass == "password123!");
 if(email === "admin1@gmail.com" && pass === "password123!"){
     adminModel.findEmail(email,function(result){
-      console.log(result);
       req.session.admin = result._id;
       req.session.name = result.name;
       res.redirect('/admin/');

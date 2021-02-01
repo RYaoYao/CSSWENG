@@ -33,7 +33,7 @@ exports.createProblem = function(req,res){
   problemModel.Count(function(result){
     var count;
     if(result)
-      { count = result;}
+      { count = parseInt(result[0].problemid) +1;}
       else{
           count = 1;
       }
@@ -44,11 +44,18 @@ exports.createProblem = function(req,res){
         tenant:tenant,
         status:status
       }
-      problemModel.create(newProblem,function(err,res){
+      problemModel.create(newProblem,function(err,resul){
+        var resu
         if(err)
-          console.log(err);
+          {
+            resu = {success:false, message:"Error occured while reporting the problem. Please contact landlord"}
+            res.send(resu);
+          }
         else
-          console.log(res);
+         {
+          resu = {success:true, message:"We have successfully reported your problem!"};
+          res.send(resu);
+         }
       })
   })
 }

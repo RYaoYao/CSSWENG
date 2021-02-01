@@ -42,3 +42,25 @@ exports.findAvailable = function(next){
         next(unitObj);
     })
 }
+
+exports.update = function(_id,next){
+
+    var query = {_id:_id};
+    UnitModel.findOne(query).exec(function(err,result){
+
+        result.status = "Unoccupied";
+        result.save(function(err2,res){
+            next(res);
+        })
+    })
+}
+
+exports.update2 = function(_id,next){
+    var query = {_id:_id};
+    UnitModel.findOne(query).exec(function(err,result){
+        result.status = "Occupied";
+        result.save(function(err2,res){
+            next(res);
+        })
+    })
+}

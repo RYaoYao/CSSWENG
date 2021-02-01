@@ -95,9 +95,25 @@ $('#UnitForm').on('click','#btnunit' ,function(){
                 payment: unitpay,
                 status: status
             }
-            $.post('CreateUnit', newunit, function(data, status){
+            $.post('CreateUnit', newunit, function(data){
                 if(data.success){
-                    console.log(success);
+                    Swal.fire({
+                        icon: 'success',
+                       title:  data.message,
+                       animation: false,
+                        customClass: "animated fadeInDown"
+                    }).then(function(){
+                        window.location.reload();
+                    });
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                       title:  data.message,
+                       animation: false,
+                        customClass: "animated fadeInDown"
+                    }).then(function(){
+                        window.location.reload();
+                    });
                 }
             })
         }
@@ -114,9 +130,25 @@ $('#editreg').on('click','#edrsub',function(){
     daypayment: $("#eideal").val()
 }
 
-$.post('./registration-status', newtenant, function(data, status){
+$.post('./registration-status', newtenant, function(data){
     if(data.success){
-        console.log(success);
+        Swal.fire({
+            icon: 'success',
+           title:  data.message,
+           animation: false,
+            customClass: "animated fadeInDown"
+        }).then(function(){
+            window.location.reload();
+        });
+    }else{
+        Swal.fire({
+            icon: 'error',
+           title:  data.message,
+           animation: false,
+            customClass: "animated fadeInDown"
+        }).then(function(){
+            window.location.reload();
+        });
     }
 })
     
@@ -126,9 +158,26 @@ $.post('./registration-status', newtenant, function(data, status){
            regisno: $('#eregno').val(),
            status: status
        }
-    $.post('./Reject', update, function(data, status2){
+    $.post('./Reject', update, function(data){
         if(data.success){
-            console.log(success)
+            Swal.fire({
+                icon: 'success',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
+        else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
         }
     })
 
@@ -143,11 +192,105 @@ $('#edittenant').on('click','#edtsub',function(){
     daypayment : $("#editpay").val(),
     mosmissed : $("#editmos").val()
     }
-    $.post('./UpdateTenant', updateten, function(data, status){
+    $.post('./UpdateTenant', updateten, function(data){
         if(data.success){
-            console.log(success);
+            Swal.fire({
+                icon: 'success',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
         }
     });
 });
-
+$('#edittenant').on('click','#btntdelete',function(){
+    var deleteten = {
+    email :  $("#editemail").val(),
+    }
+    $.post('./DeleteTenant', deleteten, function(data){
+        if(data.success){
+            Swal.fire({
+                icon: 'success',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
+    });
+});
+$('#editPform').on('click','#btnpdelete',function(){
+    var updateproblem = {
+    problemid :  $("#eprobid").val(),
+    }
+    $.post('./deleteProblem', updateproblem, function(data){
+        if(data.success){
+            Swal.fire({
+                icon: 'success',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
+    });
+});
+$('#editPform').on('click','#probedit',function(){
+    var updateproblem = {
+    problemid :  $("#eprobid").val(),
+    status : $("#eprobstat").val(),
+    }
+    $.post('./UpdateProblem', updateproblem, function(data){
+        if(data.success){
+            Swal.fire({
+                icon: 'success',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }else{
+            Swal.fire({
+                icon: 'error',
+               title:  data.message,
+               animation: false,
+                customClass: "animated fadeInDown"
+            }).then(function(){
+                window.location.reload();
+            });
+        }
+    });
+});
 });
